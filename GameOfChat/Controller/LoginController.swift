@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
 
@@ -19,13 +20,15 @@ class LoginController: UIViewController {
         return view
     }()
     
-    let loginRegisterButton: UIButton = {
+    lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: UIButtonType.system)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register", for: UIControlState.normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
         return button
     }()
     
@@ -146,6 +149,36 @@ class LoginController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return UIStatusBarStyle.lightContent
     }
+    
+    @objc func handleRegister(){
+        
+        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
+            print("Form is not valid")
+            return
+        }
+        
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            if error != nil {
+                print(error!)
+            }
+            guard let uid = authResult?.user.uid else {
+                return
+            }
+            let ref = Database.database().reference()
+            let usersReference = ref.child("users").child(uid)
+            let value = ["name": name, "email": email]
+            usersReference.updateChildValues(value, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print(error!)
+                }
+                print("Saved user successfully into Firebase DB")
+            })
+        }
+       
+    }
+    
+    
 
 }
 
