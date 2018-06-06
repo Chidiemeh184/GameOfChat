@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D48FA8406B67BF80F7FE2371 /* Pods_GameOfChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9B0A6CB2F6570FEE1EE712 /* Pods_GameOfChat.framework */; };
+		EF7BB61120C785AB0058C24C /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7BB61020C785AB0058C24C /* NewMessageController.swift */; };
 		EFF3C01220C36985005B3A7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF3C01120C36985005B3A7F /* AppDelegate.swift */; };
-		EFF3C01420C36985005B3A7F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF3C01320C36985005B3A7F /* MainViewController.swift */; };
+		EFF3C01420C36985005B3A7F /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF3C01320C36985005B3A7F /* MessagesController.swift */; };
 		EFF3C01720C36985005B3A7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF3C01520C36985005B3A7F /* Main.storyboard */; };
 		EFF3C01920C36986005B3A7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFF3C01820C36986005B3A7F /* Assets.xcassets */; };
 		EFF3C01C20C36986005B3A7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFF3C01A20C36986005B3A7F /* LaunchScreen.storyboard */; };
@@ -21,9 +22,10 @@
 		81C67E9306990B7FDF57AA9E /* Pods-GameOfChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameOfChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameOfChat/Pods-GameOfChat.debug.xcconfig"; sourceTree = "<group>"; };
 		87B62831D622753BBE7EFD3C /* Pods-GameOfChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameOfChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameOfChat/Pods-GameOfChat.release.xcconfig"; sourceTree = "<group>"; };
 		AB9B0A6CB2F6570FEE1EE712 /* Pods_GameOfChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameOfChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF7BB61020C785AB0058C24C /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		EFF3C00E20C36985005B3A7F /* GameOfChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF3C01120C36985005B3A7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFF3C01320C36985005B3A7F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EFF3C01320C36985005B3A7F /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		EFF3C01620C36985005B3A7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFF3C01820C36986005B3A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFF3C01B20C36986005B3A7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,7 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				EFF3C02420C3705A005B3A7F /* LoginController.swift */,
-				EFF3C01320C36985005B3A7F /* MainViewController.swift */,
+				EFF3C01320C36985005B3A7F /* MessagesController.swift */,
+				EF7BB61020C785AB0058C24C /* NewMessageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,7 +224,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFF3C01420C36985005B3A7F /* MainViewController.swift in Sources */,
+				EF7BB61120C785AB0058C24C /* NewMessageController.swift in Sources */,
+				EFF3C01420C36985005B3A7F /* MessagesController.swift in Sources */,
 				EFF3C02520C3705A005B3A7F /* LoginController.swift in Sources */,
 				EFF3C01220C36985005B3A7F /* AppDelegate.swift in Sources */,
 			);
@@ -371,7 +375,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8V82X98L5Q;
 				INFOPLIST_FILE = GameOfChat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.chidiemeh184.GameOfChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -387,7 +394,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8V82X98L5Q;
 				INFOPLIST_FILE = GameOfChat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.chidiemeh184.GameOfChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

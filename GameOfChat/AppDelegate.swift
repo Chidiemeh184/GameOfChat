@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let mainVC = MainViewController()
+        let mainVC = MessagesController()
         mainVC.view.backgroundColor = .white
         window?.rootViewController = UINavigationController(rootViewController: mainVC)
         
